@@ -41,7 +41,7 @@ jobs:
           
       - name: Create new task definition with updated image
         run: |
-          task_def_arn=$(aws ecs register-task-definition --family ${{ env.ECS_SERVICE_NAME }} --container-definitions "[{\"name\":\"${{ env.IMAGE_NAME }}\",\"image\":\"${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}\",\"essential\":true}]" --query "taskDefinition.taskDefinitionArn" --output text)
+          task_def_arn=$(aws ecs register-task-definition --family ${{ env.ECS_SERVICE_NAME }} --container-definitions "[{\"name\":\"demo-app",\"image\":\"${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}\",\"essential\":true}]" --query "taskDefinition.taskDefinitionArn" --output text)
 
       - name: Update Amazon ECS service
         run: |

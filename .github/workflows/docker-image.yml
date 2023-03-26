@@ -54,7 +54,5 @@ jobs:
           --output text)
           
           echo "$task_def_arn"
-
-      - name: Update Amazon ECS service
-        run: |
           aws ecs update-service --cluster ${{ env.ECS_CLUSTER_NAME }} --service ${{ env.ECS_SERVICE_NAME }} --force-new-deployment --task-definition "$task_def_arn"
+

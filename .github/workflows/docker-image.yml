@@ -10,7 +10,7 @@ env:
   AWS_ACCOUNT_ID: 342051059025
   ECS_CLUSTER_NAME: demo-cluster
   ECS_SERVICE_NAME: demo-service
-  IMAGE_NAME: hellodemodocker
+  IMAGE_NAME: public.ecr.aws/y9k2v6d6/hellodemodocker
   IMAGE_TAG: ${{ github.sha }}
 
 jobs:

@@ -48,7 +48,9 @@ jobs:
           --container-definitions "[{\"name\":\"demo-app\",\"image\":\"${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}\",\"essential\":true,\"memory\":512,\"cpu\":256,\"portMappings\":[{\"containerPort\":3000,\"hostPort\":80,\"protocol\":\"tcp\"}]}]" \
           --query "taskDefinition.taskDefinitionArn" \
           --output text)
+          
+          echo "$task_def_arn"
 
       - name: Update Amazon ECS service
         run: |
-          aws ecs update-service --cluster ${{ env.ECS_CLUSTER_NAME }} --service ${{ env.ECS_SERVICE_NAME }} --force-new-deployment --task-definition $task_def_arn
+          aws ecs update-service --cluster ${{ env.ECS_CLUSTER_NAME }} --service ${{ env.ECS_SERVICE_NAME }} --force-new-deployment --task-definition "$task_def_arn"

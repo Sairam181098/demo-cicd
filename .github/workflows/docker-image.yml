@@ -47,6 +47,7 @@ jobs:
           --family demo-service \
           --requires-compatibilities FARGATE \
           --network-mode awsvpc \
+          --cpu 256 \
           --container-definitions "[{\"name\":\"demo-app\",\"image\":\"${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}\",\"essential\":true,\"memory\":512,\"cpu\":256,\"portMappings\":[{\"containerPort\":3000,\"hostPort\":3000,\"protocol\":\"tcp\"}]}]" \
           --query "taskDefinition.taskDefinitionArn" \
           --output text)
